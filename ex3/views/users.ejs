@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .container{
+        display: flex;
+      }
+      .card{
+        margin:10px;
+        text-align: center;
+        flex:1;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+      <% for(var i = 0; i<users.length; i++){ %>
+      <div class="card">
+        <h3><%= users[i].name %></h3>
+        <b><%= users[i].email %></b>
+        <p><%= users[i].state %></p>
+      </div>
+      <% } %>
+    </div>
+
+    <h3>Add a new user</h3>
+    <form action="/users" method="post">
+      <input type="text" name="name" placeholder="Name">
+      <input type="text" name="email" placeholder="Email">
+      <input type="text" name="state" placeholder="State">
+      <input type="submit">
+    </form>
+
+  </body>
+</html>
