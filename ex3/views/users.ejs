@@ -22,7 +22,7 @@
       <div class="card">
         <h3><%= users[i].name %></h3>
         <b><%= users[i].email %></b>
-        <p><%= users[i].state %></p>
+        <p><%= users[i].age %></p>
       </div>
       <% } %>
     </div>
@@ -30,8 +30,8 @@
     <h3>Add a new user</h3>
     <form action="/users" method="post">
       <input type="text" name="name" placeholder="Name">
-      <input type="text" name="email" placeholder="Email">
-      <input type="text" name="state" placeholder="State">
+      <input type="text" name="user_email" placeholder="Email">
+      <input type="number" name="age" placeholder="Age">
       <input type="submit">
     </form>
 

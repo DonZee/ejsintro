@@ -10,7 +10,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res){
   // Use res.render to "pass in values" that the HTML document will be able to render
   // into the template (see below)
-  res.render('index', {name: "Rumplestilskin"});
+  res.render('index', {name: "Rumplestilskin", country:"Mexico"});
 });
 
 app.listen(port, function () {

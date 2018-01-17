@@ -1,3 +1,6 @@
+const env = 'development';
+const config = require('./knexfile.js')[env];
+const knex = require('knex')(config);
 var express = require('express');
 var fs = require('fs')
 var app = express();
@@ -11,11 +14,8 @@ app.set('view engine', 'ejs');
 app.get('/users', function(req, res){
   // Use res.render to "pass in values" that the HTML document will be able to render
   // into the template (see below)
-  fs.readFile("./storage.json", 'utf8', function(err, data){
-    let usersArr = JSON.parse(data);
-
-    res.render('users', {users: usersArr});
-
+  knex('users').then((results)=>{
+    res.render('users', {users:results});
   })
 });
 
