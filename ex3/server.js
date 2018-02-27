@@ -20,13 +20,26 @@ app.get('/users', function(req, res){
   })
 });
 
+
+app.get('/users/:id', function(req, res){
+  knex('users').where('id', req.params.id).then((results)=>{
+    res.render("individual", {user: results[0]});
+  })
+})
+
+app.get("/delete/:id", function(req, res){
+  knex('users').del().where('id', req.params.id).then(()=>{
+    res.redirect("/users");
+  })
+})
+
 app.post('/users', function(req, res) {
   knex('users').insert({
     name:req.body.name,
-    email:req.body.user_email,
+    email:req.body.email,
     age:req.body.age
   }).then(()=>{
-    res.redirect('/users')
+    res.redirect('/users');
   })
 });
 

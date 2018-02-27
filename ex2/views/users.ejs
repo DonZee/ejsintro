@@ -19,11 +19,18 @@
 
     <div class="container">
       <% for(var i = 0; i<users.length; i++){ %>
-        <div class="card">
-          <h3><%= users[i].name %></h3>
-          <b><%= users[i].email %></b>
-          <p><%= users[i].age %></p>
-        </div>
+        <% if(users[i].age >= 21){ %>
+          <div class="card">
+            <b>Valid user can be let in</b>
+            <h3><%= users[i].name %></h3>
+            <b><%= users[i].email %></b>
+            <p><%= users[i].age %></p>
+          </div>
+        <% }else{ %>
+          <div class="card">
+            <h3><%= users[i].name %> IS NOT ALLOWED</h3>
+          </div>
+        <% } %>
       <% } %>
     </div>
 

@@ -2,7 +2,6 @@ const env = 'development';
 const config = require('./knexfile.js')[env];
 const knex = require('knex')(config);
 var express = require('express');
-var fs = require('fs')
 var app = express();
 var port = process.env.PORT || 8000;
 
@@ -18,6 +17,7 @@ app.get('/users', function(req, res){
     res.render('users', {users:results});
   })
 });
+
 
 app.listen(port, function () {
   console.log("running on localhost:"+port);

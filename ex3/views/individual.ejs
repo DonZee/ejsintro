@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h2>Viewing <%= user.name %></h2>
+    <p><%= user.name %> has the email <%= user.email %> and is currently <%= user.age %> years old.</p>
+    <a href="/delete/<%=user.id%>">Delete this user</a>
+    <a href="/users">home</a>
+  </body>
+</html>
